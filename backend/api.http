@@ -1,0 +1,51 @@
+
+###
+ GET http://localhost:3000/students  
+
+###
+GET http://localhost:3000/students?search=ana
+
+###
+POST http://localhost:3000/students/
+Content-Type: application/json
+
+{
+  "name": "Ana Maria",
+  "email": "ana.maria@example.com",
+  "age": 23
+
+}
+###
+
+
+PUT http://localhost:3000/students/5
+Content-Type: application/json
+
+{
+  "name": "pepepepepepe",
+  "email": "pepepepepepe@example.com",
+  "age": 30
+}
+
+
+
+###
+//se registrara un user 
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{"email": "usuario.niiiii@example.com",
+ "password": "securePassword123" ,
+  
+  "name": "hdbhub Prueba"
+}
+
+
+###
+//se logueara un user
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{"email": "usuario.niiiii@example.com",
+ "password": "securePassword123" 
+} 
