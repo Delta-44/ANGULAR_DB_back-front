@@ -12,8 +12,9 @@ import { AuthService } from '../core/auth/auth.service';
       <div class="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
         <a routerLink="/" class="font-bold text-yellow tracking-wider uppercase">DEMO APP</a>
 
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-4">
           @if (logged()) {
+            <span class="text-sm text-yellow/80">Usuario actual: <span class="font-medium text-yellow">{{ userEmail() }}</span></span>
             <button class="border border-yellow px-3 py-1.5 text-sm text-yellow hover:bg-yellow hover:text-black transition-colors font-medium" (click)="logout()">
               LOGOUT
             </button>
@@ -30,6 +31,7 @@ export class NavbarComponent {
   private auth = inject(AuthService);
 
   logged = computed(() => this.token.isLogged());
+  userEmail = computed(() => this.token.getUserEmail() || 'Usuario');
 
   logout() {
     this.auth.logout();

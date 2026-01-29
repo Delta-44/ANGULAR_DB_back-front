@@ -16,7 +16,9 @@ export class AuthCallbackComponent {
     const token = this.route.snapshot.queryParamMap.get('token');
     if (token) {
       this.auth.saveToken(token);
+      window.location.href = '/';
+    } else {
+      this.router.navigate(['/login']);
     }
-    this.router.navigate(['/']);
   }
 }
