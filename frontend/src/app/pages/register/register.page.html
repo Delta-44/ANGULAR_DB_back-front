@@ -1,43 +1,43 @@
-<div class="min-h-screen bg-slate-50 flex items-center justify-center p-4">
-  <div class="w-full max-w-md rounded-2xl bg-white shadow-sm border p-6">
-    <h1 class="text-xl font-semibold text-slate-900">Crear cuenta</h1>
-    <p class="text-sm text-slate-500 mt-1">Registro con email y password</p>
+<div class="min-h-screen bg-black flex items-center justify-center p-4">
+  <div class="w-full max-w-md bg-gray-900 border border-yellow p-6">
+    <h1 class="text-xl font-bold text-yellow tracking-tight">CREAR CUENTA</h1>
+    <p class="text-sm text-yellow/60 mt-1">Registro con email y password</p>
 
     @if (error()) {
-      <div class="mt-4 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-rose-700 text-sm">
+      <div class="mt-4 border border-yellow bg-yellow/10 px-4 py-3 text-yellow text-sm">
         {{ error() }}
       </div>
     }
 
     <form class="mt-5 space-y-4" [formGroup]="form" (ngSubmit)="submit()">
       <div>
-        <label class="text-xs font-medium text-slate-600">Nombre</label>
-        <input class="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+        <label class="text-xs font-medium text-yellow uppercase tracking-wider">Nombre</label>
+        <input class="mt-1 w-full border border-yellow/30 bg-black px-3 py-2 text-sm text-yellow placeholder:text-yellow/30 focus:border-yellow focus:outline-none"
                formControlName="name" placeholder="Tu nombre" />
       </div>
 
       <div>
-        <label class="text-xs font-medium text-slate-600">Email</label>
-        <input class="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+        <label class="text-xs font-medium text-yellow uppercase tracking-wider">Email</label>
+        <input class="mt-1 w-full border border-yellow/30 bg-black px-3 py-2 text-sm text-yellow placeholder:text-yellow/30 focus:border-yellow focus:outline-none"
                formControlName="email" placeholder="tu@email.com" />
       </div>
 
       <div>
-        <label class="text-xs font-medium text-slate-600">Password</label>
-        <input type="password" class="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+        <label class="text-xs font-medium text-yellow uppercase tracking-wider">Password</label>
+        <input type="password" class="mt-1 w-full border border-yellow/30 bg-black px-3 py-2 text-sm text-yellow placeholder:text-yellow/30 focus:border-yellow focus:outline-none"
                formControlName="password" placeholder="mínimo 6 caracteres" />
       </div>
 
       <button type="submit"
-              class="w-full rounded-xl bg-slate-900 px-4 py-2 text-white text-sm font-medium hover:bg-slate-800 disabled:opacity-60"
+              class="w-full bg-yellow px-4 py-2 text-black text-sm font-bold uppercase tracking-wider hover:bg-yellow-dark disabled:opacity-60 transition-colors"
               [disabled]="loading()">
-        @if (loading()) { Creando... } @else { Crear cuenta }
+        @if (loading()) { CREANDO... } @else { CREAR CUENTA }
       </button>
     </form>
 
-    <p class="mt-4 text-sm text-slate-600">
+    <p class="mt-4 text-sm text-yellow/60">
       ¿Ya tienes cuenta?
-      <a routerLink="/login" class="font-medium text-slate-900 underline">Login</a>
+      <a routerLink="/login" class="font-medium text-yellow hover:underline">Login</a>
     </p>
   </div>
 </div>

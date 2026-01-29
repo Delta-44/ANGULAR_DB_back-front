@@ -1,54 +1,54 @@
-<div class="min-h-screen bg-slate-50 flex items-center justify-center p-4">
-  <div class="w-full max-w-md rounded-2xl bg-white shadow-sm border p-6">
-    <h1 class="text-xl font-semibold text-slate-900">Iniciar sesión</h1>
-    <p class="text-sm text-slate-500 mt-1">Accede con email/contraseña o Google</p>
+<div class="min-h-screen bg-black flex items-center justify-center p-4">
+  <div class="w-full max-w-md bg-gray-900 border border-yellow p-6">
+    <h1 class="text-xl font-bold text-yellow tracking-tight">INICIAR SESIÓN</h1>
+    <p class="text-sm text-yellow/60 mt-1">Accede con email/contraseña o Google</p>
 
     @if (error()) {
-      <div class="mt-4 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-rose-700 text-sm">
+      <div class="mt-4 border border-yellow bg-yellow/10 px-4 py-3 text-yellow text-sm">
         {{ error() }}
       </div>
     }
 
     <form class="mt-5 space-y-4" [formGroup]="form" (ngSubmit)="submit()">
       <div>
-        <label class="text-xs font-medium text-slate-600">Email</label>
-        <input class="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+        <label class="text-xs font-medium text-yellow uppercase tracking-wider">Email</label>
+        <input class="mt-1 w-full border border-yellow/30 bg-black px-3 py-2 text-sm text-yellow placeholder:text-yellow/30 focus:border-yellow focus:outline-none"
                formControlName="email" placeholder="tu@email.com" />
         @if (form.controls.email.touched && form.controls.email.invalid) {
-          <p class="mt-1 text-xs text-rose-700">Email no válido</p>
+          <p class="mt-1 text-xs text-yellow">Email no válido</p>
         }
       </div>
 
       <div>
-        <label class="text-xs font-medium text-slate-600">Password</label>
-        <input type="password" class="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+        <label class="text-xs font-medium text-yellow uppercase tracking-wider">Password</label>
+        <input type="password" class="mt-1 w-full border border-yellow/30 bg-black px-3 py-2 text-sm text-yellow placeholder:text-yellow/30 focus:border-yellow focus:outline-none"
                formControlName="password" placeholder="••••••••" />
         @if (form.controls.password.touched && form.controls.password.invalid) {
-          <p class="mt-1 text-xs text-rose-700">Obligatorio</p>
+          <p class="mt-1 text-xs text-yellow">Obligatorio</p>
         }
       </div>
 
       <button type="submit"
-              class="w-full rounded-xl bg-slate-900 px-4 py-2 text-white text-sm font-medium hover:bg-slate-800 disabled:opacity-60"
+              class="w-full bg-yellow px-4 py-2 text-black text-sm font-bold uppercase tracking-wider hover:bg-yellow-dark disabled:opacity-60 transition-colors"
               [disabled]="loading()">
-        @if (loading()) { Entrando... } @else { Entrar }
+        @if (loading()) { ENTRANDO... } @else { ENTRAR }
       </button>
     </form>
 
     <div class="my-4 flex items-center gap-3">
-      <div class="h-px flex-1 bg-slate-200"></div>
-      <span class="text-xs text-slate-500">o</span>
-      <div class="h-px flex-1 bg-slate-200"></div>
+      <div class="h-px flex-1 bg-yellow/20"></div>
+      <span class="text-xs text-yellow/60">o</span>
+      <div class="h-px flex-1 bg-yellow/20"></div>
     </div>
 
-    <button class="w-full rounded-xl border px-4 py-2 text-sm font-medium hover:bg-slate-50"
+    <button class="w-full border border-yellow px-4 py-2 text-sm font-medium text-yellow hover:bg-yellow hover:text-black transition-colors"
             (click)="google()">
-      Continuar con Google
+      CONTINUAR CON GOOGLE
     </button>
 
-    <p class="mt-4 text-sm text-slate-600">
+    <p class="mt-4 text-sm text-yellow/60">
       ¿No tienes cuenta?
-      <a routerLink="/register" class="font-medium text-slate-900 underline">Crear cuenta</a>
+      <a routerLink="/register" class="font-medium text-yellow hover:underline">Crear cuenta</a>
     </p>
   </div>
 </div>

@@ -1,16 +1,16 @@
-<div class="min-h-screen bg-slate-50">
+<div class="min-h-screen bg-black">
   <!-- Top bar -->
-  <div class="border-b bg-white">
+  <div class="border-b border-yellow/30 bg-black">
     <div class="mx-auto max-w-5xl px-4 py-5 flex items-center justify-between">
       <div>
-        <h1 class="text-xl font-semibold text-slate-900">Estudiantes</h1>
-        <p class="text-sm text-slate-500">CRUD con Angular moderno + Node + MariaDB</p>
+        <h1 class="text-xl font-bold text-yellow tracking-tight uppercase">Estudiantes</h1>
+        <p class="text-sm text-yellow/60">CRUD con Angular moderno + Node + MariaDB</p>
       </div>
 
       <button
-        class="rounded-xl bg-slate-900 px-4 py-2 text-white text-sm font-medium hover:bg-slate-800 active:scale-[0.99]"
+        class="bg-yellow px-4 py-2 text-black text-sm font-bold hover:bg-yellow-dark active:scale-[0.99] uppercase tracking-wider"
         (click)="openCreate()">
-        + Nuevo
+        + NUEVO
       </button>
     </div>
   </div>
@@ -20,82 +20,82 @@
 
     <!-- Alerts -->
     @if (apiError()) {
-      <div class="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-rose-700 text-sm">
+      <div class="border border-yellow bg-yellow/10 px-4 py-3 text-yellow text-sm">
         {{ apiError() }}
       </div>
     }
 
     <!-- Controls -->
-    <div class="rounded-2xl bg-white p-4 shadow-sm border">
+    <div class="bg-gray-900 border border-yellow/30 p-4">
       <div class="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
         <div class="flex-1">
-          <label class="text-xs font-medium text-slate-600">Buscar por nombre</label>
+          <label class="text-xs font-medium text-yellow uppercase tracking-wider">Buscar por nombre</label>
           <input
-            class="mt-1 w-full rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-slate-200"
+            class="mt-1 w-full border border-yellow/30 bg-black px-3 py-2 text-sm text-yellow placeholder:text-yellow/30 focus:border-yellow focus:outline-none"
             placeholder="Ej: Ana"
             [formControl]="search"
           />
         </div>
 
-        <div class="text-xs text-slate-500 flex items-center gap-2">
+        <div class="text-xs text-yellow/60 flex items-center gap-2">
           @if (loading()) {
             <span class="inline-flex items-center gap-2">
-              <span class="h-2 w-2 rounded-full bg-slate-400 animate-pulse"></span>
+              <span class="h-2 w-2 bg-yellow animate-pulse"></span>
               Cargando...
             </span>
           } @else {
-            <span>Listo</span>
+            <span>LISTO</span>
           }
         </div>
       </div>
     </div>
 
     <!-- Table -->
-    <div class="rounded-2xl bg-white shadow-sm border overflow-hidden">
-      <div class="px-4 py-3 border-b">
-        <h2 class="text-sm font-semibold text-slate-900">Listado</h2>
+    <div class="bg-gray-900 border border-yellow/30 overflow-hidden">
+      <div class="px-4 py-3 border-b border-yellow/30">
+        <h2 class="text-sm font-bold text-yellow uppercase tracking-wider">Listado</h2>
       </div>
 
       @if (students$ | async; as students) {
         @if (students.length === 0) {
           <div class="p-8 text-center">
-            <div class="mx-auto h-12 w-12 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-600">∅</div>
-            <p class="mt-3 font-medium text-slate-900">Sin resultados</p>
-            <p class="text-sm text-slate-500">Prueba otro nombre o crea un nuevo estudiante.</p>
+            <div class="mx-auto h-12 w-12 border border-yellow flex items-center justify-center text-yellow text-2xl">∅</div>
+            <p class="mt-3 font-bold text-yellow">SIN RESULTADOS</p>
+            <p class="text-sm text-yellow/60">Prueba otro nombre o crea un nuevo estudiante.</p>
             <button
-              class="mt-4 rounded-xl bg-slate-900 px-4 py-2 text-white text-sm font-medium hover:bg-slate-800"
+              class="mt-4 bg-yellow px-4 py-2 text-black text-sm font-bold hover:bg-yellow-dark uppercase tracking-wider"
               (click)="openCreate()">
-              Crear estudiante
+              CREAR ESTUDIANTE
             </button>
           </div>
         } @else {
           <div class="overflow-x-auto">
             <table class="w-full text-sm">
-              <thead class="bg-slate-50 text-slate-600">
+              <thead class="bg-black/50 text-yellow border-b border-yellow/30">
                 <tr>
-                  <th class="px-4 py-3 text-left font-medium">Nombre</th>
-                  <th class="px-4 py-3 text-left font-medium">Email</th>
-                  <th class="px-4 py-3 text-left font-medium">Edad</th>
-                  <th class="px-4 py-3 text-right font-medium">Acciones</th>
+                  <th class="px-4 py-3 text-left font-bold uppercase tracking-wider">Nombre</th>
+                  <th class="px-4 py-3 text-left font-bold uppercase tracking-wider">Email</th>
+                  <th class="px-4 py-3 text-left font-bold uppercase tracking-wider">Edad</th>
+                  <th class="px-4 py-3 text-right font-bold uppercase tracking-wider">Acciones</th>
                 </tr>
               </thead>
-              <tbody class="divide-y">
+              <tbody class="divide-y divide-yellow/20">
                 @for (s of students; track s.id) {
-                  <tr class="hover:bg-slate-50">
-                    <td class="px-4 py-3 font-medium text-slate-900">{{ s.name }}</td>
-                    <td class="px-4 py-3 text-slate-700">{{ s.email }}</td>
-                    <td class="px-4 py-3 text-slate-700">{{ s.age }}</td>
+                  <tr class="hover:bg-yellow/5">
+                    <td class="px-4 py-3 font-medium text-yellow">{{ s.name }}</td>
+                    <td class="px-4 py-3 text-yellow/80">{{ s.email }}</td>
+                    <td class="px-4 py-3 text-yellow/80">{{ s.age }}</td>
                     <td class="px-4 py-3">
                       <div class="flex justify-end gap-2">
                         <button
-                          class="rounded-xl border px-3 py-1.5 text-xs font-medium hover:bg-white bg-slate-50"
+                          class="border border-yellow px-3 py-1.5 text-xs font-medium text-yellow hover:bg-yellow hover:text-black transition-colors"
                           (click)="openEdit(s)">
-                          Editar
+                          EDITAR
                         </button>
                         <button
-                          class="rounded-xl border border-rose-200 bg-rose-50 px-3 py-1.5 text-xs font-medium text-rose-700 hover:bg-rose-100"
+                          class="border border-yellow bg-yellow px-3 py-1.5 text-xs font-medium text-black hover:bg-yellow-dark transition-colors"
                           (click)="remove(s.id)">
-                          Eliminar
+                          ELIMINAR
                         </button>
                       </div>
                     </td>
@@ -106,82 +106,82 @@
           </div>
         }
       } @else {
-        <div class="p-6 text-slate-500">Cargando...</div>
+        <div class="p-6 text-yellow/60">Cargando...</div>
       }
     </div>
   </div>
 
   <!-- Modal -->
   @if (isModalOpen()) {
-    <div class="fixed inset-0 bg-black/40 flex items-center justify-center p-4">
-      <div class="w-full max-w-lg rounded-2xl bg-white shadow-xl border overflow-hidden">
-        <div class="px-5 py-4 border-b flex items-center justify-between">
-          <h3 class="font-semibold text-slate-900">{{ modalTitle() }}</h3>
-          <button class="rounded-xl px-2 py-1 text-slate-500 hover:bg-slate-100" (click)="closeModal()">✕</button>
+    <div class="fixed inset-0 bg-black/90 flex items-center justify-center p-4">
+      <div class="w-full max-w-lg bg-gray-900 border border-yellow overflow-hidden">
+        <div class="px-5 py-4 border-b border-yellow/30 flex items-center justify-between">
+          <h3 class="font-bold text-yellow uppercase tracking-wider">{{ modalTitle() }}</h3>
+          <button class="px-2 py-1 text-yellow hover:bg-yellow hover:text-black transition-colors" (click)="closeModal()">✕</button>
         </div>
 
         <form class="p-5 space-y-4" [formGroup]="form" (ngSubmit)="submit()">
           <!-- Name -->
           <div>
-            <label class="text-xs font-medium text-slate-600">Nombre</label>
+            <label class="text-xs font-medium text-yellow uppercase tracking-wider">Nombre</label>
             <input
-              class="mt-1 w-full rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-slate-200"
+              class="mt-1 w-full border border-yellow/30 bg-black px-3 py-2 text-sm text-yellow placeholder:text-yellow/30 focus:border-yellow focus:outline-none"
               formControlName="name"
               placeholder="Ana López"
             />
             @if (c('name').touched && c('name').invalid) {
-              <p class="mt-1 text-xs text-rose-700">Nombre inválido (mín. 2, máx. 60).</p>
+              <p class="mt-1 text-xs text-yellow">Nombre inválido (mín. 2, máx. 60).</p>
             }
             @if (fe('name')) {
-              <p class="mt-1 text-xs text-rose-700">{{ fe('name') }}</p>
+              <p class="mt-1 text-xs text-yellow">{{ fe('name') }}</p>
             }
           </div>
 
           <!-- Email -->
           <div>
-            <label class="text-xs font-medium text-slate-600">Email</label>
+            <label class="text-xs font-medium text-yellow uppercase tracking-wider">Email</label>
             <input
-              class="mt-1 w-full rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-slate-200"
+              class="mt-1 w-full border border-yellow/30 bg-black px-3 py-2 text-sm text-yellow placeholder:text-yellow/30 focus:border-yellow focus:outline-none"
               formControlName="email"
               placeholder="ana@correo.com"
             />
             @if (c('email').touched && c('email').invalid) {
-              <p class="mt-1 text-xs text-rose-700">Email inválido.</p>
+              <p class="mt-1 text-xs text-yellow">Email inválido.</p>
             }
             @if (fe('email')) {
-              <p class="mt-1 text-xs text-rose-700">{{ fe('email') }}</p>
+              <p class="mt-1 text-xs text-yellow">{{ fe('email') }}</p>
             }
           </div>
 
           <!-- Age -->
           <div>
-            <label class="text-xs font-medium text-slate-600">Edad</label>
+            <label class="text-xs font-medium text-yellow uppercase tracking-wider">Edad</label>
             <input
               type="number"
-              class="mt-1 w-full rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-slate-200"
+              class="mt-1 w-full border border-yellow/30 bg-black px-3 py-2 text-sm text-yellow placeholder:text-yellow/30 focus:border-yellow focus:outline-none"
               formControlName="age"
             />
             @if (c('age').touched && c('age').invalid) {
-              <p class="mt-1 text-xs text-rose-700">Edad entre 0 y 120.</p>
+              <p class="mt-1 text-xs text-yellow">Edad entre 0 y 120.</p>
             }
             @if (fe('age')) {
-              <p class="mt-1 text-xs text-rose-700">{{ fe('age') }}</p>
+              <p class="mt-1 text-xs text-yellow">{{ fe('age') }}</p>
             }
           </div>
 
           <div class="pt-2 flex justify-end gap-2">
             <button
               type="button"
-              class="rounded-xl border px-4 py-2 text-sm font-medium hover:bg-slate-50"
+              class="border border-yellow px-4 py-2 text-sm font-medium text-yellow hover:bg-yellow hover:text-black transition-colors"
               (click)="closeModal()">
-              Cancelar
+              CANCELAR
             </button>
 
             <button
               type="submit"
               [disabled]="loading()"
-              class="rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 disabled:opacity-60">
-              @if (loading()) { Guardando... } @else { Guardar }
+              class="bg-yellow px-4 py-2 text-sm font-bold text-black hover:bg-yellow-dark disabled:opacity-60 uppercase tracking-wider">
+              @if (loading()) { GUARDANDO... } @else { GUARDAR }
             </button>
           </div>
         </form>

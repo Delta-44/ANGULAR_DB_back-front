@@ -3,7 +3,7 @@ import cors from 'cors';
 import passport from 'passport';
 import studentRoutes from './routes/student.routes';
 import authRoutes from './routes/auth.routes';
-// import './auth/google.strategy'; // Descomentar cuando tengas las credenciales de Google
+import './auth/google.strategy';
 
 const app = express();
 

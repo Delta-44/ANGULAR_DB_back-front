@@ -8,17 +8,17 @@ import { AuthService } from '../core/auth/auth.service';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <div class="border-b bg-white">
+    <div class="border-b border-yellow/30 bg-black">
       <div class="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
-        <a routerLink="/" class="font-semibold text-slate-900">Demo App</a>
+        <a routerLink="/" class="font-bold text-yellow tracking-wider uppercase">DEMO APP</a>
 
         <div class="flex items-center gap-2">
           @if (logged()) {
-            <button class="rounded-xl border px-3 py-1.5 text-sm hover:bg-slate-50" (click)="logout()">
-              Logout
+            <button class="border border-yellow px-3 py-1.5 text-sm text-yellow hover:bg-yellow hover:text-black transition-colors font-medium" (click)="logout()">
+              LOGOUT
             </button>
           } @else {
-            <a routerLink="/login" class="rounded-xl border px-3 py-1.5 text-sm hover:bg-slate-50">Login</a>
+            <a routerLink="/login" class="border border-yellow px-3 py-1.5 text-sm text-yellow hover:bg-yellow hover:text-black transition-colors font-medium">LOGIN</a>
           }
         </div>
       </div>
